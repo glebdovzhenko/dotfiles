@@ -53,6 +53,12 @@ return require('packer').startup(function(use)
            require('gitsigns').setup()
        end
   }
+  use {
+      "akinsho/toggleterm.nvim", tag = '*', 
+      config = function()
+          require("toggleterm").setup()
+      end
+  }
   -- My plugins here
   -- use 'foo1/bar1.nvim'
   -- use 'foo2/bar2.nvim'
