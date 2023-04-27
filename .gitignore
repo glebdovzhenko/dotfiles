@@ -1,2 +1,4 @@
 .DS_Store
-
+nvim/plugin
+nvim/.DS_Store
+tmux/.DS_Store
