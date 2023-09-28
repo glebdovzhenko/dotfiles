@@ -18,11 +18,6 @@ return require('packer').startup(function(use)
   use 'lervag/vimtex'
   use 'vim-airline/vim-airline'
   use 'preservim/nerdcommenter'
-  use {
-      'junegunn/fzf', 
-      run = ':fzf#install()' 
-  }
-  use 'junegunn/fzf.vim'
   use 'morhetz/gruvbox'
   use {
       'neoclide/coc.nvim', 
