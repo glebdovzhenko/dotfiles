@@ -13,17 +13,15 @@ local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-  use 'nvim-tree/nvim-web-devicons'  --optional, for file icons
   use 'nvim-tree/nvim-tree.lua'
   use 'lervag/vimtex'
-  use 'vim-airline/vim-airline'
   use 'preservim/nerdcommenter'
   use 'morhetz/gruvbox'
   use {
       'neoclide/coc.nvim', 
-      branch = 'release'
+      branch = 'release',
+      run = ':CocInstall coc-go coc-pyright coc-prettier coc-json'
   }
-  use 'chrisbra/csv.vim'
   use {
       'nvim-lualine/lualine.nvim', 
       requires = 'nvim-tree/nvim-web-devicons'
@@ -34,13 +32,9 @@ return require('packer').startup(function(use)
       requires = 'nvim-tree/nvim-web-devicons'
   }
   use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.1', requires = { {'nvim-lua/plenary.nvim'} } }
-  use {
-        'nvim-treesitter/nvim-treesitter',
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
+      'nvim-telescope/telescope.nvim', 
+      tag = '0.1.1', 
+      requires = 'nvim-lua/plenary.nvim'
   }
   use {
        'lewis6991/gitsigns.nvim',
