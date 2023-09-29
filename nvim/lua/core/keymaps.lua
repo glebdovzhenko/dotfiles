@@ -7,7 +7,7 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.fileformat = 'unix'
 vim.opt.scrolloff = 7
-vim.opt.colorcolumn = '121'
+vim.opt.colorcolumn = '80'
 vim.opt.relativenumber = true
 
 vim.api.nvim_command('retab')

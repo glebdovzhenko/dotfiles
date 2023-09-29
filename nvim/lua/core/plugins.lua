@@ -12,6 +12,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
+
   use 'wbthomason/packer.nvim'
   use 'nvim-tree/nvim-tree.lua'
   use 'lervag/vimtex'
@@ -24,13 +25,13 @@ return require('packer').startup(function(use)
   use {
       'neoclide/coc.nvim', 
       branch = 'release',
-      run = ':CocInstall coc-go coc-pyright coc-prettier coc-json'
+      run = ':CocInstall coc-go coc-pyright coc-prettier coc-json coc-lua'
   }
   use {
       'nvim-lualine/lualine.nvim', 
       requires = {
           'nvim-tree/nvim-web-devicons', 
-          {'nvim-treesitter/nvim-treesitter', run = 'TSUpdate lua c vim vimdoc query'}
+          {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate lua c vim vimdoc query'}
       }
   }
   use {
