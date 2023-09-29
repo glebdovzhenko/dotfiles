@@ -19,7 +19,8 @@ return require('packer').startup(function(use)
   use 'morhetz/gruvbox'
   use 'gelguy/wilder.nvim'
   use 'romgrk/fzy-lua-native'
-
+  use 'lewis6991/gitsigns.nvim'
+  
   use {
       'neoclide/coc.nvim', 
       branch = 'release',
@@ -27,7 +28,10 @@ return require('packer').startup(function(use)
   }
   use {
       'nvim-lualine/lualine.nvim', 
-      requires = 'nvim-tree/nvim-web-devicons'
+      requires = {
+          'nvim-tree/nvim-web-devicons', 
+          {'nvim-treesitter/nvim-treesitter', run = 'TSUpdate lua c vim vimdoc query'}
+      }
   }
   use {
       'akinsho/bufferline.nvim', 
@@ -40,18 +44,8 @@ return require('packer').startup(function(use)
       requires = 'nvim-lua/plenary.nvim'
   }
   use {
-       'lewis6991/gitsigns.nvim',
-       config = function()
-           require('gitsigns').setup()
-       end
-  }
-  use {
       "akinsho/toggleterm.nvim", tag = '*', 
-      config = function()
-          require("toggleterm").setup()
-      end
   }
-
 
   if packer_bootstrap then
     require('packer').sync()
