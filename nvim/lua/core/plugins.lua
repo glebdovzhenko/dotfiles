@@ -17,6 +17,9 @@ return require('packer').startup(function(use)
   use 'lervag/vimtex'
   use 'preservim/nerdcommenter'
   use 'morhetz/gruvbox'
+  use 'gelguy/wilder.nvim'
+  use 'romgrk/fzy-lua-native'
+
   use {
       'neoclide/coc.nvim', 
       branch = 'release',
@@ -48,6 +51,7 @@ return require('packer').startup(function(use)
           require("toggleterm").setup()
       end
   }
+
 
   if packer_bootstrap then
     require('packer').sync()
