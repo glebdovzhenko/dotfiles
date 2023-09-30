@@ -14,7 +14,3 @@ vim.api.nvim_command('retab')
 vim.cmd('filetype plugin indent on')
 vim.opt.syntax = 'enable'
 
-
-vim.keymap.set('n', '<leader>1', ':bp<CR>')
-vim.keymap.set('n', '<leader>2', ':bn<CR>')
-vim.keymap.set('n', '<leader>w', ':bd<CR>')
