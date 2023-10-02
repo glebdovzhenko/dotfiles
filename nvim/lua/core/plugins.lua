@@ -21,6 +21,8 @@ return require('packer').startup(function(use)
   use 'gelguy/wilder.nvim'
   use 'romgrk/fzy-lua-native'
   use 'lewis6991/gitsigns.nvim'
+  use 'mrjones2014/legendary.nvim'
+  use 'stevearc/dressing.nvim'
   
   use {
       'neoclide/coc.nvim', 

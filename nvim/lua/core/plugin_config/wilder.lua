@@ -13,7 +13,8 @@ local gradient = {
 }
 
 for i, fg in ipairs(gradient) do
-  gradient[i] = wilder.make_hl('WilderGradient' .. i, 'Pmenu', {{a = 1}, {a = 1}, {foreground = fg}})
+  gradient[i] = wilder.make_hl('WilderGradient' .. i, 'Pmenu', 
+  {{a = 1}, {a = 1}, {foreground = fg}})
 end
 
 -- Fuzzy search
@@ -47,7 +48,8 @@ wilder.set_option('renderer', wilder.popupmenu_renderer(
     reverse = 0,             -- set to 1 to reverse the order of the list, use in combination with 'prompt_position'
     highlighter = wilder.lua_fzy_highlighter(),
     highlights = {
-      accent = wilder.make_hl('WilderAccent', 'Pmenu', {{a = 1}, {a = 1}, {foreground = '#f4468f'}}),
+      accent = wilder.make_hl('WilderAccent', 'Pmenu', {{a = 1}, {a = 1},
+      {foreground = '#f4468f'}}),
     },
     left = {' ', wilder.popupmenu_devicons()},
     right = {' ', wilder.popupmenu_scrollbar()},
