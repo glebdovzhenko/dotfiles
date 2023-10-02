@@ -18,6 +18,10 @@ vim.opt.syntax = 'enable'
 
 require('legendary').setup({
   keymaps={
+    -- legendary
+    {'<leader>H', ':Legendary<CR>',
+     description = 'Run command search'},
+
     -- ToggleTerm
     {'<leader>t', ':ToggleTerm direction=float<CR>',
     description = 'ToggleTerm floating terminal'},
@@ -44,13 +48,13 @@ require('legendary').setup({
     function()
         local tb = require('telescope.builtin')
         tb.live_grep()
-    end, 
+    end,
     description='Telescope live grep'},
     {'<leader>h',
     function()
         local tb = require('telescope.builtin')
         tb.help_tags()
-    end, 
+    end,
     description='Telescope help tags'},
 
     -- nvim-tree
