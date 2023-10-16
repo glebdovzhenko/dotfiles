@@ -1,5 +1,5 @@
-require("core.keymaps")
 require("core.plugins")
+require("core.keymaps")
 require("core.autocommands")
 
 require('core.plugin_config.bufferline')
