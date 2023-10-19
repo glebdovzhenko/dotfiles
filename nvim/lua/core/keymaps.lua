@@ -58,7 +58,7 @@ require('legendary').setup({
     description='Telescope help tags'},
 
     -- nvim-tree
-    {'<leader>§', ':NvimTreeToggle<CR>', description='Toggle nvim-tree'},
+    {'<leader>`', ':NvimTreeToggle<CR>', description='Toggle nvim-tree'},
     {'<leader>r', ':NvimTreeRefresh<CR>', description='Refresh nvim-tree'},
 
     -- bufferline
