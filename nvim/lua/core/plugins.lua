@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'mrjones2014/legendary.nvim'
   use 'stevearc/dressing.nvim'
+  use 'karb94/neoscroll.nvim'
   
   use {
       'neoclide/coc.nvim', 
