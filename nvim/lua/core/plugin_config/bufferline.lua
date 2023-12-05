@@ -7,6 +7,10 @@ require("bufferline").setup{
                 highlight = "Directory",
                 separator = true
             }
+        },
+        indicator = {
+            icon = '█',
+            style = 'icon'
         }
     }
 }
