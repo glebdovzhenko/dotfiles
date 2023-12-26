@@ -23,14 +23,12 @@ require('legendary').setup({
      description = 'Run command search'},
 
     -- ToggleTerm
-    {'<leader>t', ':ToggleTerm direction=float<CR>',
-    description = 'ToggleTerm floating terminal'},
     {'<leader>g',
     function()
         local term = require('toggleterm.terminal').Terminal
         local lg = term:new({
-            cmd = "lazygit", 
-            hidden = true, 
+            cmd = "lazygit",
+            hidden = true,
             direction = "float"
         })
         lg:toggle()

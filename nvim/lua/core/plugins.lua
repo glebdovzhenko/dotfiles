@@ -28,7 +28,7 @@ return require('packer').startup(function(use)
   use {
       'neoclide/coc.nvim', 
       branch = 'release',
-      run = ':CocInstall coc-go coc-pyright coc-prettier coc-json coc-lua'
+      run = ':CocInstall coc-go coc-pyright coc-prettier coc-json coc-lua coc-html coc-html-css-support'
   }
   use {
       'nvim-lualine/lualine.nvim', 
