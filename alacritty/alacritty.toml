@@ -7,5 +7,5 @@ size = 14
 #family = "UbuntuMono Nerd Font"
 family = "DejaVuSansM Nerd Font"
 
-#[window]
-#decorations = "none"
+[window]
+decorations = "none"

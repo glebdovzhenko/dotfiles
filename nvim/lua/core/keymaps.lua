@@ -57,7 +57,7 @@ require('legendary').setup({
 
     -- nvim-tree
     {'<leader>`', ':NvimTreeToggle<CR>', description='Toggle nvim-tree'},
-    {'<leader>r', ':NvimTreeRefresh<CR>', description='Refresh nvim-tree'},
+    {'<leader>R', ':NvimTreeRefresh<CR>', description='Refresh nvim-tree'},
 
     -- bufferline
     {'<leader>1', ':bp<CR>', description='Prev buffer'},
