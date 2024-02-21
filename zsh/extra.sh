@@ -10,3 +10,6 @@ eval "$(zoxide init zsh)"
 
 # ALIASES
 alias lg="lazygit"
+
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
