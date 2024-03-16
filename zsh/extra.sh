@@ -5,11 +5,13 @@ export LC_ALL=C.UTF-8
 export PATH="$HOME/.tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # ZOXIDE
-eval "$(zoxide init zsh)"
+compinit
+eval "$(zoxide init zsh --cmd cd)"
 
 # ALIASES
 alias lg="lazygit"
-
-# FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+alias ta="tmux attach"
