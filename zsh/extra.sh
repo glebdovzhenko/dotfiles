@@ -14,4 +14,5 @@ eval "$(zoxide init zsh --cmd cd)"
 
 # ALIASES
 alias lg="lazygit"
+alias tm="tmuxifier s main"
 alias ta="tmux attach"
