@@ -76,21 +76,22 @@ require('legendary').setup({
 
         -- LSP ----------------------------------------------------------------
         -- TODO: move to only when LSP is attached
-        { 'gD',        vim.lsp.buf.declaration,   {} }, 
-        { 'gd',        vim.lsp.buf.definition,    {} },
-        { 'K',         vim.lsp.buf.hover,         {} },
+        { 'gD',        vim.lsp.buf.declaration,   description = 'Find declaration' },
+        { 'gd',        vim.lsp.buf.definition,    description = 'Find definition' },
+        { 'K',         vim.lsp.buf.hover,         description = 'Show help' },
 
         -- diagnostics
-        { '<space>e',  vim.diagnostic.open_float, {} },
-        { '[d',        vim.diagnostic.goto_prev,  {} },
-        { ']d',        vim.diagnostic.goto_next,  {} },
-        { '<space>q',  vim.diagnostic.setloclist, {} },
+        { '<space>e',  vim.diagnostic.open_float, description = 'Open diagnostics' },
+        { '[d',        vim.diagnostic.goto_prev,  description = 'GoTo previous diagnoctic' },
+        { ']d',        vim.diagnostic.goto_next,  description = 'GoTo next diagnostic' },
 
-        { '<space>rn', vim.lsp.buf.rename,        {} },
-        { 'gr',        vim.lsp.buf.references,    {} },
-        { '<space>f', function()
-            vim.lsp.buf.format { async = true }
-        end, {} },
+        {
+            '<space>f',
+            function()
+                vim.lsp.buf.format { async = true }
+            end,
+            description = 'Format current buffer'
+        },
         -----------------------------------------------------------------------
 
         -- NERDCommenter ------------------------------------------------------
