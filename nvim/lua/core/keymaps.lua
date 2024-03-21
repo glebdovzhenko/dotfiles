@@ -66,24 +66,25 @@ require('legendary').setup({
         },
 
         -- nvim-tree ----------------------------------------------------------
-        { '<leader>`', ':NvimTreeToggle<CR>',     description = 'Toggle nvim-tree' },
-        { '<leader>R', ':NvimTreeRefresh<CR>',    description = 'Refresh nvim-tree' },
+        { '<leader>`', ':NvimTreeToggle<CR>',       description = 'Toggle nvim-tree' },
+        { '<leader>R', ':NvimTreeRefresh<CR>',      description = 'Refresh nvim-tree' },
 
         -- bufferline ---------------------------------------------------------
-        { '<leader>1', ':bp<CR>',                 description = 'Prev buffer' },
-        { '<leader>2', ':bn<CR>',                 description = 'Next buffer' },
-        { '<leader>w', ':bd<CR>',                 description = 'Close buffer' },
+        { '<leader>1', ':bp<CR>',                   description = 'Prev buffer' },
+        { '<leader>2', ':bn<CR>',                   description = 'Next buffer' },
+        { '<leader>w', ':bd<CR>',                   description = 'Close buffer' },
 
         -- LSP ----------------------------------------------------------------
         -- TODO: move to only when LSP is attached
-        { 'gD',        vim.lsp.buf.declaration,   description = 'Find declaration' },
-        { 'gd',        vim.lsp.buf.definition,    description = 'Find definition' },
-        { 'K',         vim.lsp.buf.hover,         description = 'Show help' },
+        { 'gD',        vim.lsp.buf.declaration,     description = 'Find declaration' },
+        { 'gd',        vim.lsp.buf.definition,      description = 'Find definition' },
+        { 'K',         vim.lsp.buf.hover,           description = 'Show help' },
 
         -- diagnostics
-        { '<space>e',  vim.diagnostic.open_float, description = 'Open diagnostics' },
-        { '[d',        vim.diagnostic.goto_prev,  description = 'GoTo previous diagnoctic' },
-        { ']d',        vim.diagnostic.goto_next,  description = 'GoTo next diagnostic' },
+        { '<space>e',  vim.diagnostic.open_float,   description = 'Open diagnostics' },
+        { '<space>q',  vim.diagnostic.set_loc_list, description = 'List diagnostics' },
+        { '[d',        vim.diagnostic.goto_prev,    description = 'GoTo previous diagnoctic' },
+        { ']d',        vim.diagnostic.goto_next,    description = 'GoTo next diagnostic' },
 
         {
             '<space>f',
@@ -92,7 +93,6 @@ require('legendary').setup({
             end,
             description = 'Format current buffer'
         },
-        -----------------------------------------------------------------------
 
         -- NERDCommenter ------------------------------------------------------
         {
@@ -128,6 +128,15 @@ require('legendary').setup({
                 vim.opt.relativenumber = true
             end,
             description = 'Switch from absolute to relative line numbers'
+        },
+        {
+            'BufWritePost',
+            function ()
+                if vim.bo.filetype == 'python' then
+                    vim.api.nvim_command('!black %')
+                end
+            end,
+            description = 'Run black formatter on autosave'
         },
     }
 })
