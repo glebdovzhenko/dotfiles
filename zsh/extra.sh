@@ -2,15 +2,15 @@
 export LC_ALL=C.UTF-8
 
 # TMUXIFIER
-export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH"
+export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
 eval "$(tmuxifier init -)"
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # ZOXIDE
-compinit
-eval "$(zoxide init zsh --cmd cd)"
+#compinit
+#eval "$(zoxide init zsh --cmd cd)"
 
 # ALIASES
 alias lg="lazygit"
