@@ -20,7 +20,6 @@ require("lazy").setup({
     'gelguy/wilder.nvim',
     'romgrk/fzy-lua-native',
     'lewis6991/gitsigns.nvim',
-    'mrjones2014/legendary.nvim',
     'stevearc/dressing.nvim',
     'karb94/neoscroll.nvim',
     'sheerun/vim-polyglot',
