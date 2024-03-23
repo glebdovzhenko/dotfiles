@@ -1,5 +1,6 @@
 require("core.plugins")
 require("core.keymaps")
+require("core.autocommands")
 
 require('core.plugin_config.bufferline')
 require('core.plugin_config.gitsigns')
