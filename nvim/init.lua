@@ -1,10 +1,9 @@
 require("core.plugins")
-require("core.keymaps")
-require("core.autocommands")
 
 require('core.plugin_config.bufferline')
 require('core.plugin_config.gitsigns')
 require('core.plugin_config.gruvbox')
+--require('core.plugin_config.harpoon')
 require('core.plugin_config.lualine')
 require('core.plugin_config.mason')
 require('core.plugin_config.neoscroll')
@@ -15,3 +14,6 @@ require('core.plugin_config.telescope')
 require('core.plugin_config.toggleterm')
 require('core.plugin_config.vimtex')
 require('core.plugin_config.wilder')
+
+require("core.keymaps")
+require("core.autocommands")
