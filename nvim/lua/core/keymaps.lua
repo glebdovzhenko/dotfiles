@@ -50,7 +50,34 @@ vim.keymap.set('v', '<leader>d',
     "\"_d",
     { desc = 'Delete to void register' })
 -- search and replace the current word
---vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Harpoon --------------------------------------------------------------------
+local function toggle_telescope(harpoon_files)
+    local file_paths = {}
+    for _, item in ipairs(harpoon_files.items) do
+        table.insert(file_paths, item.value)
+    end
+
+    local conf = require("telescope.config").values
+    require("telescope.pickers").new({}, {
+        prompt_title = "Harpoon",
+        finder = require("telescope.finders").new_table({
+            results = file_paths,
+        }),
+        previewer = conf.file_previewer({}),
+        sorter = conf.generic_sorter({})
+    }):find()
+end
+
+local harpoon = require("harpoon")
+vim.keymap.set("n", "<C-h>", function() toggle_telescope(harpoon:list()) end,
+    { desc = "Open harpoon window via Telescope" })
+vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+    { desc = "Open harpoon window" })
+vim.keymap.set("n", "<C-a>", function() harpoon:list():append() end)
+vim.keymap.set("n", "<C-h>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-l>", function() harpoon:list():next() end)
 
 -- ToggleTerm -----------------------------------------------------------------
 
