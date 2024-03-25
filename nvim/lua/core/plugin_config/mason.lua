@@ -15,18 +15,6 @@ local function set_lsp_mappings()
     vim.keymap.set('n', 'K',
         vim.lsp.buf.hover,
         { buffer = 0, desc = 'Show help' })
-    --vim.keymap.set('n', '<space>e',
-    --    vim.diagnostic.open_float,
-    --    { buffer = 0, desc = 'Open diagnostics' })
-    --vim.keymap.set('n', '<space>q',
-    --    vim.diagnostic.set_loc_list,
-    --    { buffer = 0, desc = 'List diagnostics' })
-    --vim.keymap.set('n', '[d',
-    --    vim.diagnostic.goto_prev,
-    --    { buffer = 0, desc = 'GoTo previous diagnoctic' })
-    --vim.keymap.set('n', ']d',
-    --    vim.diagnostic.goto_next,
-    --    { buffer = 0, desc = 'GoTo next diagnostic' })
     vim.keymap.set('n', '<space>f',
         function()
             vim.lsp.buf.format { async = true }

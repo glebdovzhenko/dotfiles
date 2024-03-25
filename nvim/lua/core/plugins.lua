@@ -12,20 +12,29 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    'wbthomason/packer.nvim',
-    'nvim-tree/nvim-tree.lua',
-    'lervag/vimtex',
-    'preservim/nerdcommenter',
-    'morhetz/gruvbox',
-    'gelguy/wilder.nvim',
-    'romgrk/fzy-lua-native',
-    'lewis6991/gitsigns.nvim',
-    'stevearc/dressing.nvim',
-    'karb94/neoscroll.nvim',
-    'sheerun/vim-polyglot',
-    'williamboman/mason.nvim',
-    'williamboman/mason-lspconfig.nvim',
-    'neovim/nvim-lspconfig',
+    -- themes
+    {
+        'morhetz/gruvbox',
+        lazy = false,
+        priority = 1000,
+        config = function()
+            --vim.cmd([[colorscheme gruvbox]])
+        end,
+    },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            vim.cmd([[colorscheme tokyonight]])
+        end,
+    },
+    {
+        'lewis6991/gitsigns.nvim',
+        init = function()
+            require('gitsigns').setup()
+        end
+    },
     {
         'hrsh7th/nvim-cmp',
         dependencies = {
@@ -40,12 +49,36 @@ require("lazy").setup({
         'nvim-lualine/lualine.nvim',
         dependencies = {
             'nvim-tree/nvim-web-devicons',
+            init = function()
+                require('lualine').setup {
+                    options = {
+                        icons_enabled = true,
+                        --theme = 'gruvbox'
+                        theme = 'palenight'
+                    }
+                }
+            end
         }
     },
     {
         'akinsho/bufferline.nvim',
         version = "v3.*",
-        dependencies = 'nvim-tree/nvim-web-devicons'
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        init = function()
+            require("bufferline").setup {
+                options = {
+                    offsets = {
+                        {
+                            filetype = "NvimTree",
+                            text = "NvimTree",
+                            highlight = "Directory",
+                            separator = true
+                        }
+                    },
+                    indicator = { icon = ' 󰜮󰜮 ', style = 'icon' }
+                }
+            }
+        end
     },
     {
         'nvim-telescope/telescope.nvim',
@@ -53,6 +86,57 @@ require("lazy").setup({
         dependencies = 'nvim-lua/plenary.nvim'
     },
     {
-        "akinsho/toggleterm.nvim", version = '*'
-    }
+        "akinsho/toggleterm.nvim",
+        version = '*',
+        init = function()
+            require("toggleterm").setup {
+                open_mapping = [[<c-\>]],
+                insert_mappings = true,
+                terminal_mappings = true,
+                direction = 'float'
+            }
+        end
+    },
+    {
+        'nvim-tree/nvim-tree.lua',
+        init = function()
+            vim.g.loaded_netrw = 1
+            vim.g.loaded_netrwPlugin = 1
+
+            require('nvim-tree').setup()
+        end
+    },
+    {
+        'lervag/vimtex',
+        init = function()
+            vim.g.vimtex_view_method = 'skim'
+        end
+    },
+    {
+        'preservim/nerdcommenter',
+        init = function()
+            vim.g.NERDCreateDefaultMappings = 0
+        end
+    },
+    {
+        'karb94/neoscroll.nvim',
+        init = function()
+            require('neoscroll').setup()
+        end
+    },
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        init = function ()
+            require("harpoon").setup()
+        end
+    },
+    'gelguy/wilder.nvim',
+    'romgrk/fzy-lua-native',
+    'stevearc/dressing.nvim',
+    'sheerun/vim-polyglot',
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig'
 })
