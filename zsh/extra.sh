@@ -8,10 +8,6 @@ eval "$(tmuxifier init -)"
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# ZOXIDE
-compinit
-eval "$(zoxide init zsh --cmd cd)"
-
 # ALIASES
 alias lg="lazygit"
 alias tm="tmuxifier s main"
