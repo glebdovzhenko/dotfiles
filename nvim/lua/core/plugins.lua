@@ -119,12 +119,6 @@ require("lazy").setup({
         end
     },
     {
-        'karb94/neoscroll.nvim',
-        init = function()
-            require('neoscroll').setup()
-        end
-    },
-    {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" },
