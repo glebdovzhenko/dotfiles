@@ -45,21 +45,21 @@ require("lazy").setup({
             'saadparwaiz1/cmp_luasnip'
         }
     },
-    {
-        'nvim-lualine/lualine.nvim',
-        dependencies = {
-            'nvim-tree/nvim-web-devicons',
-            init = function()
-                require('lualine').setup {
-                    options = {
-                        icons_enabled = true,
-                        --theme = 'gruvbox'
-                        theme = 'palenight'
-                    }
-                }
-            end
-        }
-    },
+    --{
+    --    'nvim-lualine/lualine.nvim',
+    --    dependencies = {
+    --        'nvim-tree/nvim-web-devicons',
+    --        init = function()
+    --            require('lualine').setup {
+    --                options = {
+    --                    icons_enabled = true,
+    --                    --theme = 'gruvbox'
+    --                    theme = 'palenight'
+    --                }
+    --            }
+    --        end
+    --    }
+    --},
     {
         'akinsho/bufferline.nvim',
         version = "v3.*",
@@ -84,6 +84,13 @@ require("lazy").setup({
         'nvim-telescope/telescope.nvim',
         version = '0.1.4',
         dependencies = 'nvim-lua/plenary.nvim'
+    },
+    {
+        "nvim-telescope/telescope-file-browser.nvim",
+        dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+        init = function()
+            require("telescope").load_extension "file_browser"
+        end
     },
     {
         "akinsho/toggleterm.nvim",
@@ -122,10 +129,25 @@ require("lazy").setup({
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" },
-        init = function ()
+        init = function()
             require("harpoon").setup()
         end
     },
+    --{
+    --    'nvim-treesitter/nvim-treesitter',
+    --    build = ":TSUpdate",
+    --    init = function()
+    --        require 'nvim-treesitter.configs'.setup {
+    --            ensure_installed = { "lua", "vim", "vimdoc", "python", "bash", "html", "http" },
+    --            sync_install = false,
+    --            auto_install = true,
+    --            highlight = {
+    --                enable = true,
+    --                additional_vim_regex_highlighting = false,
+    --            },
+    --        }
+    --    end
+    --},
     'gelguy/wilder.nvim',
     'romgrk/fzy-lua-native',
     'stevearc/dressing.nvim',
