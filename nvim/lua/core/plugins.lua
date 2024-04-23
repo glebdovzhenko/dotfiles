@@ -83,7 +83,35 @@ require("lazy").setup({
     {
         'nvim-telescope/telescope.nvim',
         version = '0.1.4',
-        dependencies = 'nvim-lua/plenary.nvim'
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'jonarrien/telescope-cmdline.nvim'
+        },
+        keys = {
+            { ':', '<cmd>Telescope cmdline<cr>', desc = 'Cmdline' }
+        },
+        opts = {
+            extensions = {
+                cmdline = {
+                    picker   = {
+                        layout_config = {
+                            width  = 120,
+                            height = 25,
+                        }
+                    },
+                    mappings = {
+                        complete      = '<Tab>',
+                        run_selection = '<C-CR>',
+                        run_input     = '<CR>',
+                    },
+                },
+            }
+        },
+        config = function(_, opts)
+            require("telescope").setup(opts)
+            require("telescope").load_extension('cmdline')
+        end,
+
     },
     {
         "nvim-telescope/telescope-file-browser.nvim",
@@ -148,7 +176,7 @@ require("lazy").setup({
             }
         end
     },
-    'gelguy/wilder.nvim',
+    --'gelguy/wilder.nvim',
     'romgrk/fzy-lua-native',
     'stevearc/dressing.nvim',
     'sheerun/vim-polyglot',
