@@ -148,30 +148,3 @@ vim.keymap.set('x',
     '<Plug>NERDCommenterUncomment',
     { silent = true, desc = 'Uncomment line(s).' })
 
---vim.keymap.set('n',
---    '<leader>cy',
---    '<Plug>NERDCommenterYank',
---    { silent = true, description = 'Comment line(s) and yank the selection.' })
---vim.keymap.set('x',
---    '<leader>cy',
---    '<Plug>NERDCommenterYank',
---    { silent = true, description = 'Comment line(s) and yank the selection.' })
-
----- TODO: move to only when LSP is attached
---{ 'gD',       vim.lsp.buf.declaration,     description = 'Find declaration' },
---{ 'gd',       vim.lsp.buf.definition,      description = 'Find definition' },
---{ 'K',        vim.lsp.buf.hover,           description = 'Show help' },
-
----- diagnostics
---{ '<space>e', vim.diagnostic.open_float,   description = 'Open diagnostics' },
---{ '<space>q', vim.diagnostic.set_loc_list, description = 'List diagnostics' },
---{ '[d',       vim.diagnostic.goto_prev,    description = 'GoTo previous diagnoctic' },
---{ ']d',       vim.diagnostic.goto_next,    description = 'GoTo next diagnostic' },
-
---{
---    '<space>f',
---    function()
---        vim.lsp.buf.format { async = true }
---    end,
---    description = 'Format current buffer'
---},

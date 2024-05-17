@@ -23,6 +23,17 @@ local function set_lsp_mappings()
     )
 end
 
+local function set_black_mapping()
+    vim.keymap.set('n', '<space>f',
+        function()
+            vim.api.nvim_command('write')
+            -- put back if I remove the autocommand 
+            --vim.api.nvim_command('!black %')
+        end,
+        { buffer = 0, desc = 'Format current buffer' }
+    )
+end
+
 local lua_settings = {
     Lua = {
         runtime = { version = 'LuaJIT', },
@@ -39,7 +50,10 @@ require("lspconfig").lua_ls.setup {
 }
 require("lspconfig").pyright.setup {
     capabilities = capabilities,
-    on_attach = set_lsp_mappings
+    on_attach = function()
+        set_lsp_mappings()
+        set_black_mapping()
+    end
 }
 require("lspconfig").gopls.setup {
     capabilities = capabilities,
