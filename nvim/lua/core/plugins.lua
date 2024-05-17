@@ -30,6 +30,13 @@ require("lazy").setup({
         end,
     },
     {
+        'mvllow/modes.nvim',
+        tag = 'v0.2.0',
+        config = function()
+            require('modes').setup()
+        end
+    },
+    {
         'lewis6991/gitsigns.nvim',
         init = function()
             require('gitsigns').setup()
