@@ -26,8 +26,8 @@ vim.keymap.set('v', 'K',
 vim.keymap.set('n', '<C-d>', "<C-d>zz")
 vim.keymap.set('n', '<C-u>', "<C-u>zz")
 -- search terms are in the middle of screen when jumping
-vim.keymap.set('n', 'n', "nzzzv")
-vim.keymap.set('n', 'N', "Nzzzv")
+vim.keymap.set('n', 'n', "nzzzv", { desc = 'Next search term' })
+vim.keymap.set('n', 'N', "Nzzzv", { desc = 'Prev search term' })
 -- paste over selection without overwriting copy buffer
 vim.keymap.set('x', '<leader>p',
     "\"_dP",
@@ -51,34 +51,6 @@ vim.keymap.set('v', '<leader>d',
     { desc = 'Delete to void register' })
 -- search and replace the current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-
--- Harpoon --------------------------------------------------------------------
-local function toggle_telescope(harpoon_files)
-    local file_paths = {}
-    for _, item in ipairs(harpoon_files.items) do
-        table.insert(file_paths, item.value)
-    end
-
-    local conf = require("telescope.config").values
-    require("telescope.pickers").new({}, {
-        prompt_title = "Harpoon",
-        finder = require("telescope.finders").new_table({
-            results = file_paths,
-        }),
-        previewer = conf.file_previewer({}),
-        sorter = conf.generic_sorter({})
-    }):find()
-end
-
-local harpoon = require("harpoon")
-vim.keymap.set("n", "<C-h>", function() toggle_telescope(harpoon:list()) end,
-    { desc = "Open harpoon window via Telescope" })
-vim.keymap.set("n", "<C-e>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
-    { desc = "Open harpoon window" })
-vim.keymap.set("n", "<C-a>", function() harpoon:list():append() end)
-vim.keymap.set("n", "<C-h>", function() harpoon:list():prev() end)
-vim.keymap.set("n", "<C-l>", function() harpoon:list():next() end)
-
 -- ToggleTerm -----------------------------------------------------------------
 
 vim.keymap.set('n', '<leader>g',
@@ -117,6 +89,9 @@ vim.keymap.set('n', '<leader>h',
 vim.keymap.set('n', '<leader>`',
     ':NvimTreeToggle<CR>',
     { desc = 'Toggle nvim-tree' })
+--vim.keymap.set('n', '<C-/>',
+--    ':NvimTreeToggle<CR>',
+--    { desc = 'Toggle nvim-tree' })
 vim.keymap.set('n', '<leader>R',
     ':NvimTreeRefresh<CR>',
     { desc = 'Refresh nvim-tree' })
@@ -147,4 +122,3 @@ vim.keymap.set('x',
     '<leader>cu',
     '<Plug>NERDCommenterUncomment',
     { silent = true, desc = 'Uncomment line(s).' })
-

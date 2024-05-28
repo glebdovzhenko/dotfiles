@@ -14,14 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- themes
     {
-        'morhetz/gruvbox',
-        lazy = false,
-        priority = 1000,
-        config = function()
-            --vim.cmd([[colorscheme gruvbox]])
-        end,
-    },
-    {
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
@@ -52,38 +44,46 @@ require("lazy").setup({
             'saadparwaiz1/cmp_luasnip'
         }
     },
-    --{
-    --    'nvim-lualine/lualine.nvim',
-    --    dependencies = {
-    --        'nvim-tree/nvim-web-devicons',
-    --        init = function()
-    --            require('lualine').setup {
-    --                options = {
-    --                    icons_enabled = true,
-    --                    --theme = 'gruvbox'
-    --                    theme = 'palenight'
-    --                }
-    --            }
-    --        end
-    --    }
-    --},
     {
-        'akinsho/bufferline.nvim',
-        version = "v3.*",
-        dependencies = 'nvim-tree/nvim-web-devicons',
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
         init = function()
-            require("bufferline").setup {
+            require('lualine').setup {
                 options = {
-                    offsets = {
-                        {
-                            filetype = "NvimTree",
-                            text = "NvimTree",
-                            highlight = "Directory",
-                            separator = true
-                        }
-                    },
-                    indicator = { icon = ' 󰜮󰜮 ', style = 'icon' }
-                }
+                    icons_enabled = true,
+                    theme = 'tokyonight',
+                    component_separators = { left = '', right = '' },
+                    section_separators = { left = '', right = '' },
+                    disabled_filetypes = { 'statusline', 'winbar', 'NvimTree' },
+                    ignore_focus = {},
+                    always_divide_middle = true,
+                    globalstatus = false,
+                    refresh = {
+                        statusline = 1000,
+                        tabline = 1000,
+                        winbar = 1000,
+                    }
+                },
+                sections = {},
+                inactive_sections = {},
+                tabline = {
+                    lualine_a = { {
+                        'buffers',
+                        symbols = {
+                            modified = ' ●',
+                            alternate_file = '',
+                            directory = '',
+                        },
+                    } },
+                    lualine_b = {},
+                    lualine_c = {},
+                    lualine_x = {},
+                    lualine_y = {},
+                    lualine_z = {}
+                },
+                winbar = {},
+                inactive_winbar = {},
+                extensions = { 'lazy', 'mason', 'toggleterm' }
             }
         end
     },
@@ -114,9 +114,6 @@ require("lazy").setup({
     {
         'nvim-tree/nvim-tree.lua',
         init = function()
-            vim.g.loaded_netrw = 1
-            vim.g.loaded_netrwPlugin = 1
-
             require('nvim-tree').setup()
         end
     },
@@ -130,14 +127,6 @@ require("lazy").setup({
         'preservim/nerdcommenter',
         init = function()
             vim.g.NERDCreateDefaultMappings = 0
-        end
-    },
-    {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        init = function()
-            require("harpoon").setup()
         end
     },
     {
@@ -155,9 +144,9 @@ require("lazy").setup({
             }
         end
     },
+    'nvim-tree/nvim-web-devicons',
     'gelguy/wilder.nvim',
     'romgrk/fzy-lua-native',
-    'stevearc/dressing.nvim',
     'sheerun/vim-polyglot',
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
