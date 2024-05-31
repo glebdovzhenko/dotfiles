@@ -53,17 +53,17 @@ vim.keymap.set('v', '<leader>d',
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- ToggleTerm -----------------------------------------------------------------
 
-vim.keymap.set('n', '<leader>g',
-    function()
-        local term = require('toggleterm.terminal').Terminal
-        local lg = term:new({
-            cmd = "lazygit",
-            hidden = true,
-            direction = "float"
-        })
-        lg:toggle()
-    end,
-    { desc = "Lazygit over ToggleTerm floating terminal" })
+--vim.keymap.set('n', '<leader>g',
+--    function()
+--        local term = require('toggleterm.terminal').Terminal
+--        local lg = term:new({
+--            cmd = "lazygit",
+--            hidden = true,
+--            direction = "float"
+--        })
+--        lg:toggle()
+--    end,
+--    { desc = "Lazygit over ToggleTerm floating terminal" })
 
 -- Telescope ------------------------------------------------------------------
 vim.keymap.set('n', '<leader>F',
@@ -86,15 +86,15 @@ vim.keymap.set('n', '<leader>h',
     { desc = 'Telescope help tags' })
 
 -- nvim-tree ------------------------------------------------------------------
-vim.keymap.set('n', '<leader>`',
-    ':NvimTreeToggle<CR>',
-    { desc = 'Toggle nvim-tree' })
---vim.keymap.set('n', '<C-/>',
+--vim.keymap.set('n', '<leader>`',
 --    ':NvimTreeToggle<CR>',
 --    { desc = 'Toggle nvim-tree' })
-vim.keymap.set('n', '<leader>R',
-    ':NvimTreeRefresh<CR>',
-    { desc = 'Refresh nvim-tree' })
+----vim.keymap.set('n', '<C-/>',
+----    ':NvimTreeToggle<CR>',
+----    { desc = 'Toggle nvim-tree' })
+--vim.keymap.set('n', '<leader>R',
+--    ':NvimTreeRefresh<CR>',
+--    { desc = 'Refresh nvim-tree' })
 
 -- bufferline -----------------------------------------------------------------
 vim.keymap.set('n', '<leader>1',

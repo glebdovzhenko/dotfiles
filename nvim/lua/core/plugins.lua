@@ -54,7 +54,7 @@ require("lazy").setup({
                     theme = 'tokyonight',
                     component_separators = { left = '', right = '' },
                     section_separators = { left = '', right = '' },
-                    disabled_filetypes = { 'statusline', 'winbar', 'NvimTree' },
+                    disabled_filetypes = { 'statusline', 'winbar'},
                     ignore_focus = {},
                     always_divide_middle = true,
                     globalstatus = false,
@@ -83,7 +83,7 @@ require("lazy").setup({
                 },
                 winbar = {},
                 inactive_winbar = {},
-                extensions = { 'lazy', 'mason', 'toggleterm' }
+                extensions = { 'lazy', 'mason' }
             }
         end
     },
@@ -99,22 +99,38 @@ require("lazy").setup({
             require("telescope").load_extension "file_browser"
         end
     },
+    --{
+    --    "akinsho/toggleterm.nvim",
+    --    version = '*',
+    --    init = function()
+    --        require("toggleterm").setup {
+    --            open_mapping = [[<c-\>]],
+    --            insert_mappings = true,
+    --            terminal_mappings = true,
+    --            direction = 'float'
+    --        }
+    --    end
+    --},
+    --{
+    --    'nvim-tree/nvim-tree.lua',
+    --    init = function()
+    --        require('nvim-tree').setup()
+    --    end
+    --},
     {
-        "akinsho/toggleterm.nvim",
-        version = '*',
+        "prichrd/netrw.nvim",
         init = function()
-            require("toggleterm").setup {
-                open_mapping = [[<c-\>]],
-                insert_mappings = true,
-                terminal_mappings = true,
-                direction = 'float'
+            require 'netrw'.setup {
+                -- Put your configuration here, or leave the object empty to take the default
+                -- configuration.
+                icons = {
+                    symlink = '', -- Symlink icon (directory and file)
+                    directory = '', -- Directory icon
+                    file = '', -- File icon
+                },
+                use_devicons = true, -- Uses nvim-web-devicons if true, otherwise use the file icon specified above
+                mappings = {}, -- Custom key mappings
             }
-        end
-    },
-    {
-        'nvim-tree/nvim-tree.lua',
-        init = function()
-            require('nvim-tree').setup()
         end
     },
     {
