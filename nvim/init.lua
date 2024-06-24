@@ -1,6 +1,5 @@
---vim.g.loaded_netrw = 1
---vim.g.loaded_netrwPlugin = 1
 vim.g.netrw_liststyle = 3
+vim.g.netrw_fastbrowse = 0
 vim.g.have_nerd_font = true
 vim.opt.termguicolors = true
 

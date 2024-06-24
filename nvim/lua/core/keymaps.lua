@@ -15,6 +15,20 @@ vim.cmd('filetype plugin indent on')
 vim.opt.syntax = 'enable'
 
 -- general -----------------------------------------------------------------
+-- Netrw
+vim.keymap.set('n', '<leader>e',
+    ":Explore<CR>",
+    { desc = 'Open netrw' })
+vim.keymap.set('v', '<leader>e',
+    ":Explore<CR>",
+    { desc = 'Open netrw' })
+--terminal
+vim.keymap.set('n', '<leader>t',
+    ":terminal<CR>",
+    { desc = 'Open terminal' })
+vim.keymap.set('v', '<leader>t',
+    ":terminal<CR>",
+    { desc = 'Open terminal' })
 -- Moving code blocks in visual mode
 vim.keymap.set('v', 'J',
     ":m '>+1<CR>gv=gv",
@@ -104,7 +118,7 @@ vim.keymap.set('n', '<leader>2',
     ':bn<CR>',
     { desc = 'Next buffer' })
 vim.keymap.set('n', '<leader>w',
-    ':bd<CR>',
+    ':bp|bd #<CR>',
     { desc = 'Close buffer' })
 
 -- NERDCommenter --------------------------------------------------------------

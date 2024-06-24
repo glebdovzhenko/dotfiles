@@ -54,7 +54,7 @@ require("lazy").setup({
                     theme = 'tokyonight',
                     component_separators = { left = '', right = '' },
                     section_separators = { left = '', right = '' },
-                    disabled_filetypes = { 'statusline', 'winbar'},
+                    disabled_filetypes = { 'statusline', 'winbar' },
                     ignore_focus = {},
                     always_divide_middle = true,
                     globalstatus = false,
@@ -158,6 +158,13 @@ require("lazy").setup({
                     additional_vim_regex_highlighting = false,
                 },
             }
+        end
+    },
+    {
+        'echasnovski/mini.ai',
+        version = false,
+        init = function()
+            require('mini.ai').setup()
         end
     },
     'nvim-tree/nvim-web-devicons',
