@@ -1,4 +1,3 @@
---TODO: descriptions don's seem to work???
 vim.api.nvim_create_autocmd('InsertEnter',
     {
         callback = function()
@@ -20,5 +19,5 @@ vim.api.nvim_create_autocmd('BufWritePost',
                 vim.api.nvim_command('!black %')
             end
         end,
-        desc = 'Run black formatter on autosave'
+        desc = 'Run black formatter on save'
     })

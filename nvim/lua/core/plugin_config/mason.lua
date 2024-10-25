@@ -1,7 +1,5 @@
 require("mason").setup()
-require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls", "pyright", "gopls" },
-}
+require("mason-lspconfig").setup {}
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
@@ -27,7 +25,7 @@ local function set_black_mapping()
     vim.keymap.set('n', '<space>f',
         function()
             vim.api.nvim_command('write')
-            -- put back if I remove the autocommand 
+            -- put back if I remove the autocommand
             --vim.api.nvim_command('!black %')
         end,
         { buffer = 0, desc = 'Format current buffer' }
@@ -42,6 +40,26 @@ local lua_settings = {
         telemetry = { enable = false, },
     },
 }
+
+local nix_settings = {
+    nixd = {
+        nixpkgs = {
+            expr = "import <nixpkgs> { }",
+        },
+        formatting = {
+            command = { "nixpkgs-fmt" }, -- or nixfmt or nixpkgs-fmt
+        },
+        -- options = {
+        --   nixos = {
+        --       expr = '(builtins.getFlake "/PATH/TO/FLAKE").nixosConfigurations.CONFIGNAME.options',
+        --   },
+        --   home_manager = {
+        --       expr = '(builtins.getFlake "/PATH/TO/FLAKE").homeConfigurations.CONFIGNAME.options',
+        --   },
+        -- },
+    },
+}
+
 
 require("lspconfig").lua_ls.setup {
     capabilities = capabilities,
@@ -58,4 +76,11 @@ require("lspconfig").pyright.setup {
 require("lspconfig").gopls.setup {
     capabilities = capabilities,
     on_attach = set_lsp_mappings
+}
+require("lspconfig").nixd.setup {
+    capabilities = capabilities,
+    cmd = { "nixd" },
+    settings = nix_settings,
+    on_attach = set_lsp_mappings,
+
 }
