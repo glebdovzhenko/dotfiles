@@ -136,3 +136,8 @@ vim.keymap.set('x',
     '<leader>cu',
     '<Plug>NERDCommenterUncomment',
     { silent = true, desc = 'Uncomment line(s).' })
+-- Precognition ---------------------------------------------------------------
+vim.keymap.set('n', '<leader>r',
+    ":Precognition toggle<CR>",
+    { desc = 'Toggle Precognition hints' })
+
