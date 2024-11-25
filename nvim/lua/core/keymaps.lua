@@ -16,12 +16,12 @@ vim.opt.syntax = 'enable'
 
 -- general -----------------------------------------------------------------
 -- Netrw
-vim.keymap.set('n', '<leader>e',
+vim.keymap.set('n', '<leader>E',
     ":Explore<CR>",
     { desc = 'Open netrw' })
-vim.keymap.set('v', '<leader>e',
-    ":Explore<CR>",
-    { desc = 'Open netrw' })
+--vim.keymap.set('v', '<leader>e',
+--    ":Explore<CR>",
+--    { desc = 'Open netrw' })
 --terminal
 vim.keymap.set('n', '<leader>t',
     ":terminal<CR>",
@@ -98,6 +98,20 @@ vim.keymap.set('n', '<leader>h',
         tb.help_tags()
     end,
     { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>b',
+    function()
+        local tb = require('telescope.builtin')
+        tb.buffers()
+    end,
+    { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>e',
+    function()
+        require('telescope').extensions.file_browser.file_browser({
+            layout_strategy='horizontal',
+            layout_config = { width = .99, height = .99 }
+        })
+    end,
+    { desc = 'Open netrw' })
 
 -- nvim-tree ------------------------------------------------------------------
 --vim.keymap.set('n', '<leader>`',
@@ -140,4 +154,3 @@ vim.keymap.set('x',
 vim.keymap.set('n', '<leader>r',
     ":Precognition toggle<CR>",
     { desc = 'Toggle Precognition hints' })
-
