@@ -29,12 +29,6 @@ require("lazy").setup({
         end
     },
     {
-        'lewis6991/gitsigns.nvim',
-        init = function()
-            require('gitsigns').setup()
-        end
-    },
-    {
         'hrsh7th/nvim-cmp',
         dependencies = {
             'hrsh7th/cmp-nvim-lsp',
@@ -45,52 +39,22 @@ require("lazy").setup({
         }
     },
     {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
+        'nvim-telescope/telescope.nvim',
+        dependencies = 'nvim-lua/plenary.nvim',
         init = function()
-            require('lualine').setup {
-                options = {
-                    icons_enabled = true,
-                    theme = 'tokyonight',
-                    component_separators = { left = '', right = '' },
-                    section_separators = { left = '', right = '' },
-                    disabled_filetypes = { 'statusline', 'winbar' },
-                    ignore_focus = {},
-                    always_divide_middle = true,
-                    globalstatus = false,
-                    refresh = {
-                        statusline = 1000,
-                        tabline = 1000,
-                        winbar = 1000,
+            local actions = require "telescope.actions"
+            require("telescope").setup {
+                pickers = {
+                    buffers = {
+                        mappings = {
+                            i = {
+                                ["<c-d>"] = actions.delete_buffer + actions.move_to_top,
+                            }
+                        }
                     }
-                },
-                sections = {},
-                inactive_sections = {},
-                tabline = {
-                    lualine_a = { {
-                        'buffers',
-                        symbols = {
-                            modified = ' ●',
-                            alternate_file = '',
-                            directory = '',
-                        },
-                    } },
-                    lualine_b = {},
-                    lualine_c = {},
-                    lualine_x = {},
-                    lualine_y = {},
-                    lualine_z = {}
-                },
-                winbar = {},
-                inactive_winbar = {},
-                extensions = { 'lazy', 'mason' }
+                }
             }
         end
-    },
-    {
-        'nvim-telescope/telescope.nvim',
-        version = '0.1.4',
-        dependencies = 'nvim-lua/plenary.nvim'
     },
     {
         "nvim-telescope/telescope-file-browser.nvim",
@@ -103,15 +67,8 @@ require("lazy").setup({
         "prichrd/netrw.nvim",
         init = function()
             require 'netrw'.setup {
-                -- Put your configuration here, or leave the object empty to take the default
-                -- configuration.
-                icons = {
-                    symlink = '', -- Symlink icon (directory and file)
-                    directory = '', -- Directory icon
-                    file = '', -- File icon
-                },
                 use_devicons = true, -- Uses nvim-web-devicons if true, otherwise use the file icon specified above
-                mappings = {}, -- Custom key mappings
+                mappings = {},       -- Custom key mappings
             }
         end
     },
@@ -153,7 +110,7 @@ require("lazy").setup({
         "tris203/precognition.nvim",
         --event = "VeryLazy",
         opts = {
-             startVisible = false,
+            startVisible = false,
             -- showBlankVirtLine = true,
             -- highlightColor = { link = "Comment" },
             -- hints = {

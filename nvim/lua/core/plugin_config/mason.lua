@@ -84,3 +84,7 @@ require("lspconfig").nixd.setup {
     on_attach = set_lsp_mappings,
 
 }
+require("lspconfig").clangd.setup {
+    capabilities = capabilities,
+    on_attach = set_lsp_mappings
+}
