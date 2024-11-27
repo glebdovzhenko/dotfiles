@@ -136,6 +136,12 @@ require("lazy").setup({
             -- },
         },
     },
+    {
+        'lewis6991/gitsigns.nvim',
+        init = function()
+            require('gitsigns').setup()
+        end,
+    },
     'nvim-tree/nvim-web-devicons',
     'gelguy/wilder.nvim',
     'romgrk/fzy-lua-native',

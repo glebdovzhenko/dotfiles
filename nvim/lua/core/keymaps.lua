@@ -104,6 +104,12 @@ vim.keymap.set('n', '<leader>b',
         tb.buffers()
     end,
     { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>g',
+    function()
+        local tb = require('telescope.builtin')
+        tb.git_status()
+    end,
+    { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>e',
     function()
         require('telescope').extensions.file_browser.file_browser({
