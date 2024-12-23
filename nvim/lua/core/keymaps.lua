@@ -119,17 +119,6 @@ vim.keymap.set('n', '<leader>e',
     end,
     { desc = 'Open netrw' })
 
--- nvim-tree ------------------------------------------------------------------
---vim.keymap.set('n', '<leader>`',
---    ':NvimTreeToggle<CR>',
---    { desc = 'Toggle nvim-tree' })
-----vim.keymap.set('n', '<C-/>',
-----    ':NvimTreeToggle<CR>',
-----    { desc = 'Toggle nvim-tree' })
---vim.keymap.set('n', '<leader>R',
---    ':NvimTreeRefresh<CR>',
---    { desc = 'Refresh nvim-tree' })
-
 -- bufferline -----------------------------------------------------------------
 vim.keymap.set('n', '<leader>1',
     ':bp<CR>',
@@ -160,3 +149,8 @@ vim.keymap.set('x',
 vim.keymap.set('n', '<leader>r',
     ":Precognition toggle<CR>",
     { desc = 'Toggle Precognition hints' })
+
+-- Treesitter-context
+vim.keymap.set('n', '<leader>cc',
+    ':TSContextToggle<CR>',
+    { silent = true, desc = 'Toggle Treesitter-context' })
