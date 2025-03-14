@@ -83,13 +83,13 @@ vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><
 vim.keymap.set('n', '<leader>F',
     function()
         local tb = require('telescope.builtin')
-        tb.find_files()
+        tb.find_files({ no_ignore = true, no_ignore_parent = true })
     end,
     { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>f',
     function()
         local tb = require('telescope.builtin')
-        tb.live_grep()
+        tb.live_grep({ no_ignore = true, no_ignore_parent = true })
     end,
     { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>h',
@@ -109,12 +109,14 @@ vim.keymap.set('n', '<leader>g',
         local tb = require('telescope.builtin')
         tb.git_status()
     end,
-    { desc = 'Telescope buffers' })
+    { desc = 'Telescope git status' })
 vim.keymap.set('n', '<leader>e',
     function()
         require('telescope').extensions.file_browser.file_browser({
-            layout_strategy='horizontal',
-            layout_config = { width = .99, height = .99 }
+            layout_strategy = 'horizontal',
+            layout_config = { width = .99, height = .99 },
+            no_ignore = true,
+            no_ignore_parent = true
         })
     end,
     { desc = 'Open netrw' })
