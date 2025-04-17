@@ -22,13 +22,17 @@ vim.keymap.set('n', '<leader>E',
 --vim.keymap.set('v', '<leader>e',
 --    ":Explore<CR>",
 --    { desc = 'Open netrw' })
---terminal
-vim.keymap.set('n', '<leader>t',
-    ":terminal<CR>",
-    { desc = 'Open terminal' })
-vim.keymap.set('v', '<leader>t',
-    ":terminal<CR>",
-    { desc = 'Open terminal' })
+-- tabs
+vim.keymap.set('n', 'tn', ":tabNext<CR>", { desc = 'Next tab' })
+vim.keymap.set('n', 'tp', ":tabprev<CR>", { desc = 'Previous tab' })
+vim.keymap.set('n', 'tN', ":tabnew<CR>", { desc = 'New tab' })
+vim.keymap.set('n', 'tc', ":tabclose<CR>", { desc = 'Close tab' })
+
+vim.keymap.set('v', 'tn', ":tabNext<CR>", { desc = 'Next tab' })
+vim.keymap.set('v', 'tp', ":tabprev<CR>", { desc = 'Previous tab' })
+vim.keymap.set('v', 'tN', ":tabnew<CR>", { desc = 'New tab' })
+vim.keymap.set('v', 'tc', ":tabclose<CR>", { desc = 'Close tab' })
+
 -- Moving code blocks in visual mode
 vim.keymap.set('v', 'J',
     ":m '>+1<CR>gv=gv",
@@ -65,20 +69,6 @@ vim.keymap.set('v', '<leader>d',
     { desc = 'Delete to void register' })
 -- search and replace the current word
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
--- ToggleTerm -----------------------------------------------------------------
-
---vim.keymap.set('n', '<leader>g',
---    function()
---        local term = require('toggleterm.terminal').Terminal
---        local lg = term:new({
---            cmd = "lazygit",
---            hidden = true,
---            direction = "float"
---        })
---        lg:toggle()
---    end,
---    { desc = "Lazygit over ToggleTerm floating terminal" })
-
 -- Telescope ------------------------------------------------------------------
 vim.keymap.set('n', '<leader>F',
     function()
@@ -122,12 +112,15 @@ vim.keymap.set('n', '<leader>e',
     { desc = 'Open netrw' })
 
 -- bufferline -----------------------------------------------------------------
-vim.keymap.set('n', '<leader>1',
+vim.keymap.set('n', 'bp',
     ':bp<CR>',
     { desc = 'Prev buffer' })
-vim.keymap.set('n', '<leader>2',
+vim.keymap.set('n', 'bn',
     ':bn<CR>',
     { desc = 'Next buffer' })
+vim.keymap.set('n', 'bw',
+    ':bw!<CR>',
+    { desc = 'Wipeout buffer' })
 vim.keymap.set('n', '<leader>w',
     ':bp|bd #<CR>',
     { desc = 'Close buffer' })
