@@ -61,30 +61,30 @@ local nix_settings = {
 }
 
 
-require("lspconfig").lua_ls.setup {
+vim.lsp.config.lua_ls = {
     capabilities = capabilities,
     settings = lua_settings,
     on_attach = set_lsp_mappings
 }
-require("lspconfig").pyright.setup {
+vim.lsp.config.pyright = {
     capabilities = capabilities,
     on_attach = function()
         set_lsp_mappings()
         set_black_mapping()
     end
 }
-require("lspconfig").gopls.setup {
+vim.lsp.config.gopls = {
     capabilities = capabilities,
     on_attach = set_lsp_mappings
 }
-require("lspconfig").nixd.setup {
+vim.lsp.config.nixd = {
     capabilities = capabilities,
     cmd = { "nixd" },
     settings = nix_settings,
     on_attach = set_lsp_mappings,
 
 }
-require("lspconfig").clangd.setup {
+vim.lsp.config.clangd = {
     capabilities = capabilities,
     on_attach = set_lsp_mappings
 }

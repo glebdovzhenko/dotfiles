@@ -15,6 +15,9 @@ vim.cmd('filetype plugin indent on')
 vim.opt.syntax = 'enable'
 
 -- general -----------------------------------------------------------------
+vim.keymap.set('n', 'ot',
+    ":vsplit <bar> :wincmd l <bar> :terminal <CR>",
+    { desc = 'Open terminal in vsplit' })
 -- Netrw
 vim.keymap.set('n', '<leader>E',
     ":Explore<CR>",
