@@ -88,7 +88,7 @@ require("lazy").setup({
         'nvim-treesitter/nvim-treesitter',
         build = ":TSUpdate",
         init = function()
-            require 'nvim-treesitter.configs'.setup {
+            require 'nvim-treesitter'.setup {
                 ensure_installed = { "lua", "vim", "vimdoc", "python", "bash", "html", "http" },
                 sync_install = false,
                 auto_install = true,
